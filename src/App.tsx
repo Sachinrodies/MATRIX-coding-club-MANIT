@@ -10,6 +10,7 @@ import ProjectIdeas from './pages/ProjectIdeas';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Members from './pages/Members';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="profile" element={<Profile />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
+        <Route path="members" element={<Members />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

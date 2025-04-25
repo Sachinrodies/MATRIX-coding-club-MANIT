@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { Menu, X, Code, User } from 'lucide-react';
+import { Menu, X, Code, User, Users } from 'lucide-react';
 import MatrixLogo from '../shared/MatrixLogo';
 import { useAuth } from '../../contexts/AuthContext';
 
@@ -76,6 +76,14 @@ const Header = () => {
               }
             >
               Project Ideas
+            </NavLink>
+            <NavLink 
+              to="/members" 
+              className={({ isActive }) => 
+                `nav-link ${isActive ? 'nav-link-active' : ''}`
+              }
+            >
+              Members
             </NavLink>
           </nav>
 
@@ -160,6 +168,15 @@ const Header = () => {
               onClick={() => setIsOpen(false)}
             >
               Project Ideas
+            </NavLink>
+            <NavLink 
+              to="/members" 
+              className={({ isActive }) => 
+                `nav-link ${isActive ? 'nav-link-active' : ''}`
+              }
+              onClick={() => setIsOpen(false)}
+            >
+              Members
             </NavLink>
             
             <div className="pt-2 mt-2 border-t border-matrix-dark-700 flex flex-col space-y-2">
