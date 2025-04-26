@@ -75,7 +75,7 @@ const Header = () => {
                 `nav-link ${isActive ? 'nav-link-active' : ''}`
               }
             >
-              Project Ideas
+              Featured Projects
             </NavLink>
             <NavLink 
               to="/members" 
@@ -162,7 +162,7 @@ const Header = () => {
               }
               onClick={() => setIsOpen(false)}
             >
-              Project Ideas
+              Featured Projects
             </NavLink>
             <NavLink 
               to="/members" 

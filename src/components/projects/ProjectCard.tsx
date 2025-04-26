@@ -1,4 +1,4 @@
-import { Github, Tag, Users, ExternalLink } from 'lucide-react';
+import { Tag, Users, ExternalLink, GraduationCap } from 'lucide-react';
 import { ProjectIdea } from '../../types/project';
 
 interface ProjectCardProps {
@@ -9,6 +9,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
     <div className="card h-full flex flex-col group hover:border-matrix-green-500 transition-all duration-200">
       <div className="p-4 border-b border-matrix-dark-700">
+        <div className="flex items-center text-sm text-matrix-green-500 mb-2">
+          <GraduationCap size={14} className="mr-1" />
+          <span>Developed by MCA Students of MANIT Bhopal</span>
+        </div>
         <h3 className="text-xl font-semibold text-white group-hover:text-matrix-green-500 transition-colors">
           {project.title}
         </h3>
@@ -40,27 +44,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           </div>
         </div>
         
-        <div className="flex flex-col sm:flex-row gap-2 mt-auto">
+        <div className="mt-auto">
           {project.websiteUrl && (
             <a 
               href={project.websiteUrl} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="btn-primary flex items-center justify-center space-x-2 hover:bg-matrix-green-600 transition-colors"
+              className="px-4 py-2 bg-matrix-green-500 text-white rounded-md flex items-center justify-center space-x-2 hover:bg-matrix-green-600 transition-colors w-full"
             >
               <ExternalLink size={16} />
               <span>Live Link</span>
-            </a>
-          )}
-          {project.githubUrl && (
-            <a 
-              href={project.githubUrl} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="btn-outline flex items-center justify-center space-x-2 hover:border-matrix-green-500 hover:text-matrix-green-500 transition-colors"
-            >
-              <Github size={16} />
-              <span>GitHub</span>
             </a>
           )}
         </div>

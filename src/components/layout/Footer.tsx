@@ -70,7 +70,7 @@ const Footer = () => {
                 <Link to="/tech-news" className="text-gray-400 hover:text-matrix-green-500 transition-colors">Tech News</Link>
               </li>
               <li>
-                <Link to="/project-ideas" className="text-gray-400 hover:text-matrix-green-500 transition-colors">Project Ideas</Link>
+                <Link to="/project-ideas" className="text-gray-400 hover:text-matrix-green-500 transition-colors">Featured Projects</Link>
               </li>
               <li>
                 <Link to="/members" className="text-gray-400 hover:text-matrix-green-500 transition-colors">Members</Link>

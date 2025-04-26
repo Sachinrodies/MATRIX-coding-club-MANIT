@@ -28,6 +28,7 @@ export const mockProjects: ProjectIdea[] = [
     category: 'Web Development',
     tags: ['Placement', 'Automation', 'Job Portal', 'Student Management'],
     githubUrl: 'https://github.com/priya-tripathi/Placement-Management-System',
+    websiteUrl: 'https://placement.manit.ac.in/',
     requirements: [
       'Real-time job posting and management',
       'Student profile and resume management',

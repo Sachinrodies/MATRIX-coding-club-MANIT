@@ -88,7 +88,7 @@ const Home = () => {
             <div>
               <h2 className="text-2xl font-bold text-white mb-2 flex items-center">
                 <Lightbulb className="mr-2 text-matrix-green-500" size={24} />
-                Featured Project Ideas
+                Featured Projects
               </h2>
               <p className="text-gray-400">
                 Explore interesting project ideas to enhance your portfolio
