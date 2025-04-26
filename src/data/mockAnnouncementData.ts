@@ -11,15 +11,6 @@ export const mockAnnouncements: Announcement[] = [
     topics: ['Recursion', 'Time Complexity', 'Optimization', 'Problem Solving']
   },
   {
-    id: 'announcement-2',
-    title: 'Web Development Workshop Series',
-    content: 'Matrix Coding Club is organizing a series of workshops on modern web development technologies. The workshops will cover React, Next.js, GraphQL, and more. Open to all MCA students regardless of experience level.',
-    createdAt: 'May 10, 2025',
-    contestDate: 'May 10-15, 2025',
-    contestTime: '5:00 PM - 7:00 PM IST',
-    topics: ['Recursion', 'Time Complexity', 'Optimization', 'Problem Solving']
-  },
-  {
     id: 'announcement-3',
     title: 'Open Source Contribution Drive',
     content: 'Join our month-long open source contribution drive! We\'ll be helping students make their first open-source contributions, understand Git workflows, and collaborate on real-world projects. Mentors will be available to guide participants.',
