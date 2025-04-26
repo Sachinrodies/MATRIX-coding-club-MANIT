@@ -2,6 +2,17 @@ import { Contest, Problem, Participant } from '../types/contest';
 
 export const mockContests: Contest[] = [
   {
+    id: 'contest-14',
+    title: 'DSA Sprint #2.5',
+    description: 'A competitive programming contest focusing on Data Structures and Algorithms. Test your skills in solving complex problems efficiently.',
+    date: '2025-05-05T21:00:00',
+    duration: '60 minutes',
+    problemCount: 6,
+    participantsCount: 0,
+    status: 'upcoming',
+    externalLink: 'https://www.hackerrank.com/contests/dsa-sprint-2-5'
+  },
+  {
     id: 'contest-13',
     title: 'DSA Sprint #2.4',
     description: 'A competitive programming contest focusing on Data Structures and Algorithms. Test your skills in solving complex problems efficiently.',
