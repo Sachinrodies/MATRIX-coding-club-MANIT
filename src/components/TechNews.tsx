@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { NewsArticle } from '../types/news';
+import { GNewsArticle } from '../types/news';
 import { fetchTechNews } from '../services/newsService';
 
 const TechNews = () => {
-  const [news, setNews] = useState<NewsArticle[]>([]);
+  const [news, setNews] = useState<GNewsArticle[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -32,9 +32,9 @@ const TechNews = () => {
         {news.map((article, index) => (
           <div key={index} className="bg-white rounded-lg shadow-md p-4">
             <div className="flex gap-4">
-              {article.urlToImage && (
+              {article.image && (
                 <img
-                  src={article.urlToImage}
+                  src={article.image}
                   alt={article.title}
                   className="w-24 h-24 object-cover rounded"
                 />

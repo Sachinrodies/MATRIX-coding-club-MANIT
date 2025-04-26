@@ -1,12 +1,12 @@
-import { NewsResponse } from '../types/news';
+import { GNewsResponse } from '../types/news';
 
-const API_KEY = '1c8a75f1857d44949a8e2d203e167c60';
-const BASE_URL = 'https://newsapi.org/v2';
+const API_KEY = '43a4e3ea553ccee03e72308412b6c6f8';
+const BASE_URL = 'https://gnews.io/api/v4';
 
-export const fetchTechNews = async (): Promise<NewsResponse> => {
+export const fetchTechNews = async (): Promise<GNewsResponse> => {
   try {
     const response = await fetch(
-      `${BASE_URL}/top-headlines?category=technology&language=en&sortBy=publishedAt&apiKey=${API_KEY}`
+      `${BASE_URL}/search?q=technology&token=${API_KEY}`
     );
 
     if (!response.ok) {

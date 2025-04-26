@@ -9,19 +9,20 @@ export interface NewsItem {
   imageUrl?: string;
 }
 
-export interface NewsArticle {
+export interface GNewsArticle {
   title: string;
   description: string;
+  content: string;
   url: string;
-  urlToImage: string;
+  image: string;
   publishedAt: string;
   source: {
     name: string;
+    url: string;
   };
 }
 
-export interface NewsResponse {
-  status: string;
-  totalResults: number;
-  articles: NewsArticle[];
+export interface GNewsResponse {
+  totalArticles: number;
+  articles: GNewsArticle[];
 }
