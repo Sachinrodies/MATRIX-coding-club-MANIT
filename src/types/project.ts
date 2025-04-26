@@ -6,5 +6,6 @@ export interface ProjectIdea {
   category: string;
   tags: string[];
   githubUrl?: string;
+  websiteUrl?: string;
   requirements: string[];
 }

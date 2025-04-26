@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react';
 import { Filter, Search, Users, Sparkles } from 'lucide-react';
 import MemberCard from '../components/members/MemberCard';
 
-type RoleType = 'all' | 'lead' | 'core' | 'member' | 'new-recruit';
+type RoleType = 'all' | 'secretary' | 'lead' | 'core' | 'member' | 'new-recruit';
 
 interface Member {
   id: string;
   name: string;
-  role: 'lead' | 'core' | 'member' | 'new-recruit';
+  role: 'secretary' | 'lead' | 'core' | 'member' | 'new-recruit';
   image: string;
   github?: string;
   linkedin?: string;
@@ -17,7 +17,16 @@ interface Member {
 
 // Sample data - replace with actual data from your backend
 const members: Member[] = [
-  
+  {
+    id: '4',
+    name: 'Manas Das',
+    role: 'secretary',
+    image: 'https://avatars.githubusercontent.com/u/141831871?v=4',
+    github: 'https://github.com/xNORAGAMIx',
+    linkedin: 'https://www.linkedin.com/in/manas-d-552168146/',
+    email: 'noragami0021@gmail.com',
+    bio: 'Secretary'
+  },
   {
     id: '1',
     name: 'Ankit Chauhan',
@@ -28,7 +37,6 @@ const members: Member[] = [
     email: 'ankitchauhan21500@gmail.com',
     bio: 'Core Team Member and Technical Lead'
   },
-  // Add more members as needed
   {
     id: '2',
     name: 'Risu Gupta',
@@ -50,16 +58,6 @@ const members: Member[] = [
     bio: 'Web Developer'
   },
   {
-    id: '4',
-    name: 'Manas Das',
-    role: 'core',
-    image: 'https://avatars.githubusercontent.com/u/141831871?v=4',
-    github: 'https://github.com/xNORAGAMIx',
-    linkedin: 'https://www.linkedin.com/in/manas-d-552168146/',
-    email: 'noragami0021@gmail.com',
-    bio: 'Secretary'
-  },
-  {
     id: '5',
     name: 'Vridhi Nahata ',
     role: 'core',
@@ -74,7 +72,6 @@ const members: Member[] = [
     name: 'Sonali Jatav ',
     role: 'core',
     image: 'https://media.licdn.com/dms/image/v2/D4D03AQGf3CSWAjTpZg/profile-displayphoto-shrink_400_400/B4DZOmVAUMG0Ag-/0/1733662345305?e=1750896000&v=beta&t=nBhJVDXD8oofRhEEQKt5kDOh6RhARvo96NW5QZmxPoM',
-
     github: 'https://github.com/Sonalijatav',
     linkedin: 'https://www.linkedin.com/in/sonali-jatav-540b6b202/',
     email: 'namexyz@gmail.com',
@@ -85,7 +82,6 @@ const members: Member[] = [
     name: 'Harstuti ',
     role: 'member',
     image: 'https://media.licdn.com/dms/image/v2/D5603AQEesGTAiFfdwg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1718218193349?e=1750896000&v=beta&t=Qs5BgzB3ihGLA4NGlgo2coHgMQbH5rfC2xCRRaLxO5k',
-
     github: 'https://github.com/harstuti121',
     linkedin: 'https://www.linkedin.com/in/harstuti/',
     email: 'namexyz@gmail.com',
@@ -106,13 +102,11 @@ const members: Member[] = [
     name: 'Kunj Arora ',
     role: 'core',
     image: 'https://media.licdn.com/dms/image/v2/D5603AQF0HEb6ABjuyA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1721389348352?e=1750896000&v=beta&t=BbkTTCX5SEnTfU76uoYx6OTBVxztfXFgGdrlHBWnimE',
-
     github: 'https://github.com/KunjArora23',
     linkedin: 'https://www.linkedin.com/in/kunjarora23/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
     email: 'namexyz@gmail.com',
     bio: 'Content Management Head'
   },
-
 ];
 
 // New recruits data
@@ -166,19 +160,6 @@ const Members = () => {
             each person brings unique skills and passion to our community.
           </p>
         </div>
-
-        {/* New Recruits Section */}
-        <div className="mb-12">
-          <div className="flex items-center gap-2 mb-6">
-            <Sparkles className="text-matrix-green-500" size={24} />
-            <h2 className="text-2xl font-bold text-white">New Recruits</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {newRecruits.map(recruit => (
-              <MemberCard key={recruit.id} member={recruit} />
-            ))}
-          </div>
-        </div>
         
         <div className="bg-matrix-dark-800 rounded-lg p-6 mb-8">
           <div className="flex flex-col md:flex-row justify-between gap-4">
@@ -208,6 +189,16 @@ const Members = () => {
                   } transition-colors`}
                 >
                   All
+                </button>
+                <button
+                  onClick={() => setRoleFilter('secretary')}
+                  className={`px-4 py-2 text-sm font-medium ${
+                    roleFilter === 'secretary'
+                      ? 'bg-matrix-green-500 text-matrix-dark-900' 
+                      : 'bg-matrix-dark-700 text-gray-300 hover:bg-matrix-dark-600'
+                  } transition-colors`}
+                >
+                  Secretary
                 </button>
                 <button
                   onClick={() => setRoleFilter('lead')}
@@ -261,6 +252,19 @@ const Members = () => {
             ))}
           </div>
         )}
+
+        {/* New Recruits Section */}
+        <div className="mt-12">
+          <div className="flex items-center gap-2 mb-6">
+            <Sparkles className="text-matrix-green-500" size={24} />
+            <h2 className="text-2xl font-bold text-white">New Recruits</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {newRecruits.map(recruit => (
+              <MemberCard key={recruit.id} member={recruit} />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

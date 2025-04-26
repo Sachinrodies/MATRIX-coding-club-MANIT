@@ -7,8 +7,8 @@ import ProblemDetail from './pages/ProblemDetail';
 import Discussion from './pages/Discussion';
 import TechNews from './pages/TechNews';
 import ProjectIdeas from './pages/ProjectIdeas';
+import ProjectDetail from './pages/ProjectDetail';
 import Profile from './pages/Profile';
-import Login from './pages/Login';
 import Register from './pages/Register';
 import Members from './pages/Members';
 import NotFound from './pages/NotFound';
@@ -24,8 +24,8 @@ function App() {
         <Route path="discussions/:id" element={<Discussion />} />
         <Route path="tech-news" element={<TechNews />} />
         <Route path="project-ideas" element={<ProjectIdeas />} />
+        <Route path="project-ideas/:id" element={<ProjectDetail />} />
         <Route path="profile" element={<Profile />} />
-        <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="members" element={<Members />} />
         <Route path="*" element={<NotFound />} />

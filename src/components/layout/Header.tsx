@@ -106,14 +106,9 @@ const Header = () => {
                 </button>
               </>
             ) : (
-              <>
-                <Link to="/login" className="nav-link">
-                  Login
-                </Link>
-                <Link to="/register" className="btn-primary text-sm">
-                  Register
-                </Link>
-              </>
+              <Link to="/register" className="btn-primary text-sm">
+                Register
+              </Link>
             )}
           </div>
 
@@ -198,22 +193,13 @@ const Header = () => {
                   </button>
                 </>
               ) : (
-                <>
-                  <Link 
-                    to="/login" 
-                    className="nav-link"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Login
-                  </Link>
-                  <Link 
-                    to="/register" 
-                    className="btn-primary text-sm"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Register
-                  </Link>
-                </>
+                <Link 
+                  to="/register" 
+                  className="btn-primary text-sm"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Register
+                </Link>
               )}
             </div>
           </nav>

@@ -10,7 +10,7 @@ const ContestCard: React.FC<ContestCardProps> = ({ contest }) => {
   const isUpcoming = new Date(contest.date) > new Date();
   
   return (
-    <div className="card group h-full flex flex-col">
+    <div className="card group h-full flex flex-col hover:border-matrix-green-500 transition-all duration-200">
       <div className={`p-4 border-b ${isUpcoming ? 'border-contest-purple/30 bg-contest-purple/10' : 'border-matrix-dark-700'}`}>
         <div className="flex justify-between items-start mb-2">
           <span className={`px-2 py-1 text-xs rounded-full ${
@@ -23,7 +23,7 @@ const ContestCard: React.FC<ContestCardProps> = ({ contest }) => {
             <span>{contest.participantsCount} participants</span>
           </div>
         </div>
-        <h3 className="text-xl font-semibold text-white mt-2 group-hover:text-matrix-green-400 transition-colors duration-200">
+        <h3 className="text-xl font-semibold text-white mt-2 group-hover:text-matrix-green-500 transition-colors duration-200">
           {contest.title}
         </h3>
       </div>
@@ -49,20 +49,22 @@ const ContestCard: React.FC<ContestCardProps> = ({ contest }) => {
         </div>
         
         <div className="space-y-2">
-          <Link 
-            to={`/contests/${contest.id}`}
-            className="btn-primary w-full flex items-center justify-center"
-          >
-            <span>{isUpcoming ? 'View Details' : 'View Results'}</span>
-            <ArrowRight size={16} className="ml-2" />
-          </Link>
+          {isUpcoming && (
+            <Link 
+              to={`/contests/${contest.id}`}
+              className="btn-primary w-full flex items-center justify-center hover:bg-matrix-green-600 transition-colors"
+            >
+              <span>View Details</span>
+              <ArrowRight size={16} className="ml-2" />
+            </Link>
+          )}
           
           {!isUpcoming && contest.externalLink && (
             <a 
               href={contest.externalLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-outline w-full flex items-center justify-center"
+              className="btn-outline w-full flex items-center justify-center hover:border-matrix-green-500 hover:text-matrix-green-500 transition-colors"
             >
               <span>View on HackerRank</span>
               <ExternalLink size={16} className="ml-2" />

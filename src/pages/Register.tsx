@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { AlertCircle } from 'lucide-react';
 
 const Register: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -23,51 +24,10 @@ const Register: React.FC = () => {
     }));
   };
 
-  const validateForm = () => {
-    let isValid = true;
-    const newErrors = {
-      name: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
-    };
-
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
-      isValid = false;
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-      isValid = false;
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Email is invalid';
-      isValid = false;
-    }
-
-    if (!formData.password) {
-      newErrors.password = 'Password is required';
-      isValid = false;
-    } else if (formData.password.length < 6) {
-      newErrors.password = 'Password must be at least 6 characters';
-      isValid = false;
-    }
-
-    if (formData.password !== formData.confirmPassword) {
-      newErrors.confirmPassword = 'Passwords do not match';
-      isValid = false;
-    }
-
-    setErrors(newErrors);
-    return isValid;
-  };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (validateForm()) {
-      // Handle successful registration here
-      console.log('Registration successful:', formData);
-    }
+    // Show alert that registration will be open soon
+    alert('Registration will be open soon! Stay tuned for updates.');
   };
 
   return (
@@ -76,6 +36,19 @@ const Register: React.FC = () => {
         <div className="max-w-md mx-auto">
           <h1 className="text-3xl font-bold text-white mb-6 text-center">Join Matrix Coding Club</h1>
           <div className="bg-matrix-dark-800 rounded-lg shadow-lg p-8 border border-matrix-dark-700">
+            <div className="mb-6 p-4 bg-matrix-green-500/10 border border-matrix-green-500/20 rounded-lg">
+              <div className="flex items-start space-x-3">
+                <AlertCircle className="text-matrix-green-500 mt-1 flex-shrink-0" size={20} />
+                <div>
+                  <h3 className="text-lg font-semibold text-matrix-green-500 mb-1">Registration Coming Soon</h3>
+                  <p className="text-gray-300">
+                    We're excited to have you join our community! Registration will be opening soon. 
+                    Please check back later or follow us on social media for updates.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
@@ -89,8 +62,8 @@ const Register: React.FC = () => {
                   onChange={handleChange}
                   className="w-full bg-matrix-dark-700 border border-matrix-dark-600 rounded-lg py-2 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-matrix-green-500 focus:border-transparent"
                   placeholder="Enter your full name"
+                  disabled
                 />
-                {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name}</p>}
               </div>
 
               <div>
@@ -105,8 +78,8 @@ const Register: React.FC = () => {
                   onChange={handleChange}
                   className="w-full bg-matrix-dark-700 border border-matrix-dark-600 rounded-lg py-2 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-matrix-green-500 focus:border-transparent"
                   placeholder="Enter your email"
+                  disabled
                 />
-                {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email}</p>}
               </div>
 
               <div>
@@ -121,8 +94,8 @@ const Register: React.FC = () => {
                   onChange={handleChange}
                   className="w-full bg-matrix-dark-700 border border-matrix-dark-600 rounded-lg py-2 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-matrix-green-500 focus:border-transparent"
                   placeholder="Create a password"
+                  disabled
                 />
-                {errors.password && <p className="mt-1 text-sm text-red-500">{errors.password}</p>}
               </div>
 
               <div>
@@ -137,15 +110,15 @@ const Register: React.FC = () => {
                   onChange={handleChange}
                   className="w-full bg-matrix-dark-700 border border-matrix-dark-600 rounded-lg py-2 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-matrix-green-500 focus:border-transparent"
                   placeholder="Confirm your password"
+                  disabled
                 />
-                {errors.confirmPassword && <p className="mt-1 text-sm text-red-500">{errors.confirmPassword}</p>}
               </div>
 
               <button
                 type="submit"
                 className="w-full py-3 px-4 bg-matrix-green-500 hover:bg-matrix-green-600 text-matrix-dark-900 font-medium rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-matrix-green-500 focus:ring-offset-2 focus:ring-offset-matrix-dark-800"
               >
-                Create Account
+                Register (Coming Soon)
               </button>
             </form>
           </div>

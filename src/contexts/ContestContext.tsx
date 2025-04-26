@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { Contest, Problem, Participant } from '../types/contest';
 import { mockContests, mockProblems, mockParticipants } from '../data/mockContestData';
 
@@ -10,13 +10,14 @@ interface ContestContextType {
   getProblems: (contestId: string) => Problem[];
   getParticipants: (contestId: string) => Participant[];
   isLoading: boolean;
+  setContests: (contests: Contest[]) => void;
 }
 
-const ContestContext = createContext<ContestContextType | null>(null);
+const ContestContext = createContext<ContestContextType | undefined>(undefined);
 
 export const useContest = () => {
   const context = useContext(ContestContext);
-  if (!context) {
+  if (context === undefined) {
     throw new Error('useContest must be used within a ContestProvider');
   }
   return context;
@@ -26,7 +27,7 @@ interface ContestProviderProps {
   children: ReactNode;
 }
 
-export const ContestProvider = ({ children }: ContestProviderProps) => {
+export const ContestProvider: React.FC<ContestProviderProps> = ({ children }) => {
   const [contests, setContests] = useState<Contest[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   
@@ -57,11 +58,11 @@ export const ContestProvider = ({ children }: ContestProviderProps) => {
   };
   
   const upcomingContests = contests.filter(
-    contest => new Date(contest.date) > new Date()
+    contest => contest.status === 'upcoming'
   ).sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
   
   const pastContests = contests.filter(
-    contest => new Date(contest.date) <= new Date()
+    contest => contest.status === 'completed'
   ).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   
   return (
@@ -73,10 +74,13 @@ export const ContestProvider = ({ children }: ContestProviderProps) => {
         getContest,
         getProblems,
         getParticipants,
-        isLoading
+        isLoading,
+        setContests
       }}
     >
       {children}
     </ContestContext.Provider>
   );
 };
+
+export { ContestContext };

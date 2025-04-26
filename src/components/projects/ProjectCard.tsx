@@ -1,5 +1,4 @@
-import { ArrowRight, Github, Tag, Users } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Github, Tag, Users, ExternalLink } from 'lucide-react';
 import { ProjectIdea } from '../../types/project';
 
 interface ProjectCardProps {
@@ -8,9 +7,9 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
-    <div className="card h-full flex flex-col group">
+    <div className="card h-full flex flex-col group hover:border-matrix-green-500 transition-all duration-200">
       <div className="p-4 border-b border-matrix-dark-700">
-        <h3 className="text-xl font-semibold text-white group-hover:text-matrix-green-400 transition-colors">
+        <h3 className="text-xl font-semibold text-white group-hover:text-matrix-green-500 transition-colors">
           {project.title}
         </h3>
         <div className="flex flex-wrap gap-2 mt-2">
@@ -42,25 +41,28 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         </div>
         
         <div className="flex flex-col sm:flex-row gap-2 mt-auto">
+          {project.websiteUrl && (
+            <a 
+              href={project.websiteUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="btn-primary flex items-center justify-center space-x-2 hover:bg-matrix-green-600 transition-colors"
+            >
+              <ExternalLink size={16} />
+              <span>Live Link</span>
+            </a>
+          )}
           {project.githubUrl && (
             <a 
               href={project.githubUrl} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="btn-secondary flex items-center justify-center space-x-2"
+              className="btn-outline flex items-center justify-center space-x-2 hover:border-matrix-green-500 hover:text-matrix-green-500 transition-colors"
             >
               <Github size={16} />
               <span>GitHub</span>
             </a>
           )}
-          
-          <Link 
-            to={`/project-ideas/${project.id}`}
-            className="btn-outline flex items-center justify-center space-x-2"
-          >
-            <span>View Details</span>
-            <ArrowRight size={16} />
-          </Link>
         </div>
       </div>
     </div>

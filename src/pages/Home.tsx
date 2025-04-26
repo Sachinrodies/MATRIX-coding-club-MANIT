@@ -1,19 +1,16 @@
 import { useState, useEffect } from 'react';
 import Hero from '../components/shared/Hero';
 import ContestCard from '../components/contests/ContestCard';
-import NewsCard from '../components/news/NewsCard';
 import ProjectCard from '../components/projects/ProjectCard';
 import AnnouncementCard from '../components/announcements/AnnouncementCard';
 import { Link } from 'react-router-dom';
-import { ArrowRight, BookOpen, Calendar, Lightbulb, Trophy } from 'lucide-react';
+import { ArrowRight, Calendar, Lightbulb, Trophy, Megaphone } from 'lucide-react';
 import { useContest } from '../contexts/ContestContext';
-import { mockNewsItems } from '../data/mockNewsData';
-import { mockProjects } from '../data/mockProjectData';
 import { mockAnnouncements } from '../data/mockAnnouncementData';
+import { mockProjects } from '../data/mockProjectData';
 
 const Home = () => {
   const { upcomingContests } = useContest();
-  const [latestNews, setLatestNews] = useState(mockNewsItems.slice(0, 3));
   const [featuredProjects, setFeaturedProjects] = useState(mockProjects.slice(0, 3));
   const [latestAnnouncements, setLatestAnnouncements] = useState(mockAnnouncements.slice(0, 2));
   
@@ -22,41 +19,13 @@ const Home = () => {
     window.scrollTo(0, 0);
     
     // Simulate data fetching
-    setLatestNews(mockNewsItems.slice(0, 3));
     setFeaturedProjects(mockProjects.slice(0, 3));
     setLatestAnnouncements(mockAnnouncements.slice(0, 2));
   }, []);
   
   return (
-    <div>
+    <div className="min-h-screen">
       <Hero />
-      
-      {/* Announcements */}
-      <section className="py-12 bg-matrix-dark-800">
-        <div className="container-custom">
-          <div className="mb-8 flex justify-between items-center">
-            <div>
-              <h2 className="text-2xl font-bold text-white mb-2 flex items-center">
-                <Calendar className="mr-2 text-announce-orange" size={24} />
-                Latest Announcements
-              </h2>
-              <p className="text-gray-400">
-                Stay updated with the latest news and events from Matrix Coding Club
-              </p>
-            </div>
-            <Link to="/announcements" className="btn-outline">
-              <span>View All</span>
-              <ArrowRight size={16} className="ml-2" />
-            </Link>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {latestAnnouncements.map(announcement => (
-              <AnnouncementCard key={announcement.id} announcement={announcement} />
-            ))}
-          </div>
-        </div>
-      </section>
       
       {/* Upcoming Contests */}
       <section className="py-16 bg-matrix-dark-900 matrix-grid">
@@ -85,28 +54,28 @@ const Home = () => {
         </div>
       </section>
       
-      {/* Tech News */}
-      <section className="py-16 bg-matrix-dark-800">
+      {/* Announcements */}
+      <section className="py-16 bg-matrix-dark-900 matrix-grid">
         <div className="container-custom">
           <div className="mb-8 flex justify-between items-center">
             <div>
               <h2 className="text-2xl font-bold text-white mb-2 flex items-center">
-                <BookOpen className="mr-2 text-tech-blue" size={24} />
-                Latest in Tech
+                <Megaphone className="mr-2 text-announce-orange" size={24} />
+                Latest Announcements
               </h2>
               <p className="text-gray-400">
-                Stay informed about the latest developments in technology
+                Stay updated with the latest news and events
               </p>
             </div>
-            <Link to="/tech-news" className="btn-outline">
+            <Link to="/announcements" className="btn-outline">
               <span>View All</span>
               <ArrowRight size={16} className="ml-2" />
             </Link>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {latestNews.map(news => (
-              <NewsCard key={news.id} news={news} />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {latestAnnouncements.map(announcement => (
+              <AnnouncementCard key={announcement.id} announcement={announcement} />
             ))}
           </div>
         </div>
