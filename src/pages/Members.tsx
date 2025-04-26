@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
-import { Filter, Search, Users } from 'lucide-react';
+import { Filter, Search, Users, Sparkles } from 'lucide-react';
 import MemberCard from '../components/members/MemberCard';
 
-type RoleType = 'all' | 'lead' | 'core' | 'member';
+type RoleType = 'all' | 'lead' | 'core' | 'member' | 'new-recruit';
 
 interface Member {
   id: string;
   name: string;
-  role: 'lead' | 'core' | 'member'|'technical lead'|'content lead';
+  role: 'lead' | 'core' | 'member' | 'new-recruit';
   image: string;
   github?: string;
   linkedin?: string;
@@ -17,6 +17,106 @@ interface Member {
 
 // Sample data - replace with actual data from your backend
 const members: Member[] = [
+  
+  {
+    id: '1',
+    name: 'Ankit Chauhan',
+    role: 'lead',
+    image: 'https://media.licdn.com/dms/image/v2/D5603AQEG6DC4mLsMPQ/profile-displayphoto-shrink_200_200/B56ZThy_XWGQAY-/0/1738955029029?e=2147483647&v=beta&t=ANwhbdCi3jGDokBgSFY7KpGxcPuYNG1rEbOnIyrvDOE',
+    github: 'https://github.com/ankitsingh2105',
+    linkedin: 'https://in.linkedin.com/in/ankitchauhan21',
+    email: 'ankitchauhan21500@gmail.com',
+    bio: 'Core Team Member and Technical Lead'
+  },
+  // Add more members as needed
+  {
+    id: '2',
+    name: 'Risu Gupta',
+    role: 'core',
+    image: 'https://media.licdn.com/dms/image/v2/D4D03AQEJ891DUddiLQ/profile-displayphoto-shrink_200_200/B4DZP6KTfYHYAY-/0/1735068827564?e=2147483647&v=beta&t=5vySMaSuoCv0lznBovlerh5caejOIS-U_437X774Psw',
+    linkedin: 'https://www.linkedin.com/in/risu-gupta-28aa01230/',
+    github: 'https://github.com/riskmr3275',
+    email: 'riskmr3275@gmail.com',
+    bio: 'Event Management Head'
+  },
+  {
+    id: '3',
+    name: 'Atul Tandan',
+    role: 'core',
+    image: 'https://media.licdn.com/dms/image/v2/D5603AQHnGrSrfUAWzg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1691404862659?e=2147483647&v=beta&t=6R8QlChvne8MXMUObJ9wm1lqBQiW4aaNhSWNWBGN5rI',
+    github: 'https://github.com/atul074',
+    linkedin: 'https://www.linkedin.com/in/atul-tandan-6583b7287?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+    email: 'ankitchauhan21500@gmail.com',
+    bio: 'Web Developer'
+  },
+  {
+    id: '4',
+    name: 'Manas Das',
+    role: 'core',
+    image: 'https://avatars.githubusercontent.com/u/141831871?v=4',
+    github: 'https://github.com/xNORAGAMIx',
+    linkedin: 'https://www.linkedin.com/in/manas-d-552168146/',
+    email: 'noragami0021@gmail.com',
+    bio: 'Secretary'
+  },
+  {
+    id: '5',
+    name: 'Vridhi Nahata ',
+    role: 'core',
+    image: 'https://media.licdn.com/dms/image/v2/D4D03AQGBy1m7Q-Gcxw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1719049508998?e=1750896000&v=beta&t=PClDmoClAteOlzssl3dHVkDKNYX_Xo0l0NnCirrttvo',
+    github: 'https://github.com/VridhiNahata',
+    linkedin: 'https://www.linkedin.com/in/vridhi-nahata-8a4a14287/',
+    email: 'namexyz@gmail.com',
+    bio: 'Web Developer'
+  },
+  {
+    id: '6',
+    name: 'Sonali Jatav ',
+    role: 'core',
+    image: 'https://media.licdn.com/dms/image/v2/D4D03AQGf3CSWAjTpZg/profile-displayphoto-shrink_400_400/B4DZOmVAUMG0Ag-/0/1733662345305?e=1750896000&v=beta&t=nBhJVDXD8oofRhEEQKt5kDOh6RhARvo96NW5QZmxPoM',
+
+    github: 'https://github.com/Sonalijatav',
+    linkedin: 'https://www.linkedin.com/in/sonali-jatav-540b6b202/',
+    email: 'namexyz@gmail.com',
+    bio: 'Web Developer'
+  },
+  {
+    id: '7',
+    name: 'Harstuti ',
+    role: 'member',
+    image: 'https://media.licdn.com/dms/image/v2/D5603AQEesGTAiFfdwg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1718218193349?e=1750896000&v=beta&t=Qs5BgzB3ihGLA4NGlgo2coHgMQbH5rfC2xCRRaLxO5k',
+
+    github: 'https://github.com/harstuti121',
+    linkedin: 'https://www.linkedin.com/in/harstuti/',
+    email: 'namexyz@gmail.com',
+    bio: 'Design Team Member'
+  },
+  {
+    id: '8',
+    name: 'Nitish Kumar',
+    role: 'core',
+    image: 'https://media.licdn.com/dms/image/v2/D4D03AQGd6R0mosGnzw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1691405196145?e=1750896000&v=beta&t=BR6FhnDX6R9xENXVA9HB-kyrIWgfnmrpAAayC1zajJ8',
+    github: 'https://github.com/nitishkumar2303',
+    linkedin: 'https://www.linkedin.com/in/nitishkumar2303/',
+    email: 'nk2332001@gmail.com',
+    bio: 'Matrix Design Team Head'
+  },
+  {
+    id: '9',
+    name: 'Kunj Arora ',
+    role: 'core',
+    image: 'https://media.licdn.com/dms/image/v2/D5603AQF0HEb6ABjuyA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1721389348352?e=1750896000&v=beta&t=BbkTTCX5SEnTfU76uoYx6OTBVxztfXFgGdrlHBWnimE',
+
+    github: 'https://github.com/KunjArora23',
+    linkedin: 'https://www.linkedin.com/in/kunjarora23/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+    email: 'namexyz@gmail.com',
+    bio: 'Content Management Head'
+  },
+
+];
+
+// New recruits data
+const newRecruits: Member[] = [
   {
     id: '1',
     name: 'Sachin ',
@@ -29,15 +129,14 @@ const members: Member[] = [
   },
   {
     id: '2',
-    name: 'Ankit Chauhan',
-    role: 'lead',
-    image: 'https://media.licdn.com/dms/image/v2/D5603AQEG6DC4mLsMPQ/profile-displayphoto-shrink_200_200/B56ZThy_XWGQAY-/0/1738955029029?e=2147483647&v=beta&t=ANwhbdCi3jGDokBgSFY7KpGxcPuYNG1rEbOnIyrvDOE',
-    github: 'https://github.com/ankitsingh2105',
-    linkedin: 'https://in.linkedin.com/in/ankitchauhan21',
-    email: 'ankitchauhan21500@gmail.com',
-    bio: 'Core Team Member and Technical Lead'
-  },
-  // Add more members as needed
+    name: 'New Recruit 2',
+    role: 'new-recruit',
+    image: 'https://via.placeholder.com/150',
+    github: 'https://github.com/',
+    linkedin: 'https://linkedin.com/',
+    email: 'newrecruit2@example.com',
+    bio: 'Looking forward to contributing!'
+  }
 ];
 
 const Members = () => {
@@ -66,6 +165,19 @@ const Members = () => {
             Meet the talented individuals who make our club thrive. From leadership to core members, 
             each person brings unique skills and passion to our community.
           </p>
+        </div>
+
+        {/* New Recruits Section */}
+        <div className="mb-12">
+          <div className="flex items-center gap-2 mb-6">
+            <Sparkles className="text-matrix-green-500" size={24} />
+            <h2 className="text-2xl font-bold text-white">New Recruits</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {newRecruits.map(recruit => (
+              <MemberCard key={recruit.id} member={recruit} />
+            ))}
+          </div>
         </div>
         
         <div className="bg-matrix-dark-800 rounded-lg p-6 mb-8">

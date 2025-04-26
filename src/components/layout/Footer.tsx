@@ -30,7 +30,7 @@ const Footer = () => {
                 <Github size={20} />
               </a>
               <a 
-                href="https://linkedin.com/company/matrix-coding-club" 
+                href="https://www.linkedin.com/company/matrixthetechnicalclub/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-matrix-green-500 transition-colors"
@@ -71,6 +71,9 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/project-ideas" className="text-gray-400 hover:text-matrix-green-500 transition-colors">Project Ideas</Link>
+              </li>
+              <li>
+                <Link to="/members" className="text-gray-400 hover:text-matrix-green-500 transition-colors">Members</Link>
               </li>
             </ul>
           </div>

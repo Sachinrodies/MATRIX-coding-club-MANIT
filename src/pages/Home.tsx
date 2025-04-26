@@ -44,6 +44,10 @@ const Home = () => {
                 Stay updated with the latest news and events from Matrix Coding Club
               </p>
             </div>
+            <Link to="/announcements" className="btn-outline">
+              <span>View All</span>
+              <ArrowRight size={16} className="ml-2" />
+            </Link>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

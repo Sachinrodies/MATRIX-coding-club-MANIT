@@ -1,4 +1,4 @@
-import { Calendar, Clock, Code, Users, ArrowRight } from 'lucide-react';
+import { Calendar, Clock, Code, Users, ArrowRight, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Contest } from '../../types/contest';
 
@@ -48,13 +48,27 @@ const ContestCard: React.FC<ContestCardProps> = ({ contest }) => {
           </div>
         </div>
         
-        <Link 
-          to={`/contests/${contest.id}`}
-          className="btn-primary w-full flex items-center justify-center"
-        >
-          <span>{isUpcoming ? 'View Details' : 'View Results'}</span>
-          <ArrowRight size={16} className="ml-2" />
-        </Link>
+        <div className="space-y-2">
+          <Link 
+            to={`/contests/${contest.id}`}
+            className="btn-primary w-full flex items-center justify-center"
+          >
+            <span>{isUpcoming ? 'View Details' : 'View Results'}</span>
+            <ArrowRight size={16} className="ml-2" />
+          </Link>
+          
+          {!isUpcoming && contest.externalLink && (
+            <a 
+              href={contest.externalLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline w-full flex items-center justify-center"
+            >
+              <span>View on HackerRank</span>
+              <ExternalLink size={16} className="ml-2" />
+            </a>
+          )}
+        </div>
       </div>
     </div>
   );

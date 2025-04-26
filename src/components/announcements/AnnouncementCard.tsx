@@ -1,19 +1,35 @@
-import { Calendar, Clock, Info } from 'lucide-react';
+import { Calendar, Clock, Info, ArrowRight } from 'lucide-react';
 import { Announcement } from '../../types/announcement';
+import { Link } from 'react-router-dom';
 
 interface AnnouncementCardProps {
   announcement: Announcement;
 }
 
 const AnnouncementCard: React.FC<AnnouncementCardProps> = ({ announcement }) => {
+  const getCategoryColor = (category?: string) => {
+    switch (category) {
+      case 'contest':
+        return 'bg-contest-purple/20 text-contest-purple';
+      case 'workshop':
+        return 'bg-tech-blue/20 text-tech-blue';
+      case 'results':
+        return 'bg-success/20 text-success';
+      default:
+        return 'bg-announce-orange/20 text-announce-orange';
+    }
+  };
+
   return (
     <div className="card border-l-4 border-l-announce-orange animate-fade-in group hover:translate-y-[-2px] transition-all duration-300">
       <div className="p-4">
         <div className="flex justify-between items-start mb-2">
-          <span className="px-2 py-1 text-xs rounded-full bg-announce-orange/20 text-announce-orange flex items-center">
-            <Info size={12} className="mr-1" />
-            Announcement
-          </span>
+          <div className="flex items-center space-x-2">
+            <span className={`px-2 py-1 text-xs rounded-full ${getCategoryColor(announcement.category)} flex items-center`}>
+              <Info size={12} className="mr-1" />
+              {announcement.category ? announcement.category.charAt(0).toUpperCase() + announcement.category.slice(1) : 'Announcement'}
+            </span>
+          </div>
           <span className="text-xs text-gray-400">{announcement.createdAt}</span>
         </div>
         
@@ -42,7 +58,7 @@ const AnnouncementCard: React.FC<AnnouncementCardProps> = ({ announcement }) => 
         
         {announcement.topics && announcement.topics.length > 0 && (
           <div className="mt-3 pt-3 border-t border-matrix-dark-700">
-            <h4 className="text-sm font-medium text-gray-300 mb-2">Contest Topics:</h4>
+            <h4 className="text-sm font-medium text-gray-300 mb-2">Topics:</h4>
             <div className="flex flex-wrap gap-2">
               {announcement.topics.map((topic, index) => (
                 <span 
@@ -53,6 +69,18 @@ const AnnouncementCard: React.FC<AnnouncementCardProps> = ({ announcement }) => 
                 </span>
               ))}
             </div>
+          </div>
+        )}
+
+        {announcement.readMoreUrl && (
+          <div className="mt-4 pt-3 border-t border-matrix-dark-700">
+            <Link 
+              to={announcement.readMoreUrl}
+              className="text-announce-orange hover:text-announce-orange/80 flex items-center text-sm"
+            >
+              <span>Read More</span>
+              <ArrowRight size={14} className="ml-1" />
+            </Link>
           </div>
         )}
       </div>

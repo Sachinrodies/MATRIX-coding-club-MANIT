@@ -7,6 +7,7 @@ export interface Contest {
   problemCount: number;
   participantsCount: number;
   status: 'upcoming' | 'ongoing' | 'completed';
+  externalLink?: string;
 }
 
 export interface Problem {

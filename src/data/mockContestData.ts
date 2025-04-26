@@ -2,54 +2,180 @@ import { Contest, Problem, Participant } from '../types/contest';
 
 export const mockContests: Contest[] = [
   {
-    id: 'contest-1',
-    title: 'Weekly DSA Challenge #32',
-    description: 'This week\'s challenge focuses on graph algorithms and dynamic programming. Solve problems of varying difficulty and improve your algorithmic skills!',
-    date: '2025-01-15T18:00:00',
-    duration: '3 hours',
-    problemCount: 5,
-    participantsCount: 120,
-    status: 'completed'
+    id: 'contest-13',
+    title: 'DSA Sprint #2.4',
+    description: 'A competitive programming contest focusing on Data Structures and Algorithms. Test your skills in solving complex problems efficiently.',
+    date: '2025-04-25T09:30:00',
+    duration: '60 minutes',
+    problemCount: 6,
+    participantsCount:12,
+    status: 'completed',
+    externalLink: 'https://www.hackerrank.com/contests/dsa-sprint-2-4'
   },
   {
-    id: 'contest-2',
-    title: 'Competitive Programming Contest',
-    description: 'A regular competitive programming contest featuring algorithmic problems of various difficulty levels. Great for preparing for coding interviews!',
-    date: '2025-01-30T17:00:00',
-    duration: '2.5 hours',
+    id: 'contest-12',
+    title: 'DSA Sprint #2.3',
+    description: 'A competitive programming contest focusing on Data Structures and Algorithms. Test your skills in solving complex problems efficiently.',
+    date: '2025-04-13T10:00:00',
+    duration: '60 minutes',
+    problemCount: 6,
+    participantsCount:10,
+    status: 'completed',
+    externalLink: 'https://www.hackerrank.com/dsa-sprint-2-3'
+  },
+  {
+    id: 'contest-12',
+    title: 'DSA Sprint #2.3',
+    description: 'A competitive programming contest focusing on Data Structures and Algorithms. Test your skills in solving complex problems efficiently.',
+    date: '2025-04-13T10:00:00',
+    duration: '60 minutes',
+    problemCount: 6,
+    participantsCount:10,
+    status: 'completed',
+    externalLink: 'https://www.hackerrank.com/dsa-sprint-2-3'
+  },
+  {
+    id: 'contest-12',
+    title: 'DSA Sprint #2.2',
+    description: 'A competitive programming contest focusing on Data Structures and Algorithms. Test your skills in solving complex problems efficiently.',
+    date: '2025-03-27T10:00:00',
+    duration: '60 minutes',
     problemCount: 4,
-    participantsCount: 85,
-    status: 'completed'
+    participantsCount:12,
+    status: 'completed',
+    externalLink: 'https://www.hackerrank.com/dsa-sprint-2-2'
   },
   {
-    id: 'contest-3',
-    title: 'Matrix Code Sprint',
-    description: 'A fast-paced contest focusing on time complexity and optimization. Can you solve the problems efficiently within the time constraints?',
-    date: '2025-02-20T19:00:00',
-    duration: '2 hours',
+    id: 'contest-11',
+    title: 'DSA Sprint #2.1',
+    description: 'A competitive programming contest focusing on Data Structures and Algorithms. Test your skills in solving complex problems efficiently.',
+    date: '2025-03-03T09:00:00',
+    duration: '60 minutes',
     problemCount: 3,
-    participantsCount: 56,
-    status: 'upcoming'
+    participantsCount:27,
+    status: 'completed',
+    externalLink: 'https://www.hackerrank.com/dsa-sprint-2-1'
   },
   {
-    id: 'contest-4',
-    title: 'Web Development Challenge',
-    description: 'A challenge focused on web development skills, including JavaScript puzzles, DOM manipulation, and algorithm challenges relevant to frontend development.',
-    date: '2025-03-05T16:00:00',
-    duration: '4 hours',
+    id: 'contest-10',
+    title: 'DSA Sprint #2.0',
+    description: 'A competitive programming contest focusing on Data Structures and Algorithms. Test your skills in solving complex problems efficiently.',
+    date: '2025-02-15T09:00:00',
+    duration: '60 minutes',
+    problemCount: 7,
+    participantsCount:25,
+    status: 'completed',
+    externalLink: 'https://www.hackerrank.com/dsa-sprint-2-0'
+  },
+  {
+    id: 'contest-9',
+    title: 'DSA Sprint #1.9',
+    description: 'A competitive programming contest focusing on Data Structures and Algorithms. Test your skills in solving complex problems efficiently.',
+    date: '2025-02-07T09:00:00',
+    duration: '60 minutes',
+    problemCount: 5,
+    participantsCount:35,
+    status: 'completed',
+    externalLink: 'https://www.hackerrank.com/dsa-sprint-1-9'
+  },
+  {
+    id: 'contest-8',
+    title: 'DSA Sprint #1.8',
+    description: 'A competitive programming contest focusing on Data Structures and Algorithms. Test your skills in solving complex problems efficiently.',
+    date: '2025-01-30T09:00:00',
+    duration: '60 minutes',
+    problemCount: 5,
+    participantsCount:22,
+    status: 'completed',
+    externalLink: 'https://www.hackerrank.com/dsa-sprint-1-8'
+  },
+  {
+    id: 'contest-7',
+    title: 'DSA Sprint #1.7',
+    description: 'A competitive programming contest focusing on Data Structures and Algorithms. Test your skills in solving complex problems efficiently.',
+    date: '2025-01-20T09:00:00',
+    duration: '60 minutes',
     problemCount: 4,
-    participantsCount: 42,
-    status: 'upcoming'
+    participantsCount:37,
+    status: 'completed',
+    externalLink: 'https://www.hackerrank.com/dsa-sprint-1-7'
+  },
+  {
+    id: 'contest-6',
+    title: 'DSA Sprint #1.6',
+    description: 'A competitive programming contest focusing on Data Structures and Algorithms. Test your skills in solving complex problems efficiently.',
+    date: '2025-01-11T10:00:00',
+    duration: '60 minutes',
+    problemCount: 5,
+    participantsCount:30,
+    status: 'completed',
+    externalLink: 'https://www.hackerrank.com/dsa-sprint-1-6'
   },
   {
     id: 'contest-5',
-    title: 'Data Structures Deep Dive',
-    description: 'Explore advanced data structures like segment trees, Fenwick trees, and more in this specialized contest for algorithm enthusiasts.',
-    date: '2025-03-25T15:00:00',
-    duration: '3 hours',
-    problemCount: 4,
-    participantsCount: 35,
-    status: 'upcoming'
+    title: 'DSA Sprint #1.5',
+    description: 'A competitive programming contest focusing on Data Structures and Algorithms. Test your skills in solving complex problems efficiently.',
+    date: '2024-12-26T09:03:00',
+    duration: '60 minutes',
+    problemCount: 8,
+    participantsCount:27,
+    status: 'completed',
+    externalLink: 'https://www.hackerrank.com/dsa-sprint-1-5'
+  },
+  {
+    id: 'contest-5',
+    title: 'DSA Sprint #1.4',
+    description: 'A competitive programming contest focusing on Data Structures and Algorithms. Test your skills in solving complex problems efficiently.',
+    date: '2024-12-19T09:03:00',
+    duration: '60 minutes',
+    problemCount: 5,
+    participantsCount:29,
+    status: 'completed',
+    externalLink: 'https://www.hackerrank.com/dsa-sprint-1-4'
+  },
+  {
+    id: 'contest-4',
+    title: 'DSA Sprint #1.3',
+    description: 'A competitive programming contest focusing on Data Structures and Algorithms. Test your skills in solving complex problems efficiently.',
+    date: '2024-12-12T09:03:00',
+    duration: '60 minutes',
+    problemCount: 6,
+    participantsCount:37,
+    status: 'completed',
+    externalLink: 'https://www.hackerrank.com/dsa-sprint-1-3'
+  },
+  {
+    id: 'contest-3',
+    title: 'DSA Sprint #1.2',
+    description: 'A competitive programming contest focusing on Data Structures and Algorithms. Test your skills in solving complex problems efficiently.',
+    date: '2024-12-03T09:00:00',
+    duration: '60 minutes',
+    problemCount: 5,
+    participantsCount:22,
+    status: 'completed',
+    externalLink: 'https://www.hackerrank.com/dsa-sprint-1-2'
+  },
+  {
+    id: 'contest-2',
+    title: 'DSA Sprint #1.1',
+    description: 'A competitive programming contest focusing on Data Structures and Algorithms. Test your skills in solving complex problems efficiently.',
+    date: '2024-11-15T09:00:00',
+    duration: '55 minutes',
+    problemCount: 6,
+    participantsCount:69,
+    status: 'completed',
+    externalLink: 'https://www.hackerrank.com/dsa-sprint-1-1'
+  },
+  {
+    id: 'contest-1',
+    title: 'DSA Sprint #1.0',
+    description: 'A competitive programming contest focusing on Data Structures and Algorithms. Test your skills in solving complex problems efficiently.',
+    date: '2024-11-07T09:00:00',
+    duration: '45 minutes',
+    problemCount: 6,
+    participantsCount:77,
+    status: 'completed',
+    externalLink: 'https://www.hackerrank.com/dsa-sprint-mca27'
   }
 ];
 
