@@ -52,9 +52,9 @@ const ContestCard: React.FC<ContestCardProps> = ({ contest }) => {
           {isUpcoming && (
             <Link 
               to={`/contests/${contest.id}`}
-              className="btn-primary w-full flex items-center justify-center hover:bg-matrix-green-600 transition-colors"
-            >
-              <span>View Details</span>
+              className="btn-outline w-full flex items-center justify-center hover:border-matrix-green-500 hover:text-white transition-colors"
+              >
+                <span>View on HackerRank(coming soon)</span>
               <ArrowRight size={16} className="ml-2" />
             </Link>
           )}
@@ -64,7 +64,7 @@ const ContestCard: React.FC<ContestCardProps> = ({ contest }) => {
               href={contest.externalLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-outline w-full flex items-center justify-center hover:border-matrix-green-500 hover:text-matrix-green-500 transition-colors"
+              className="btn-outline w-full flex items-center justify-center hover:border-matrix-green-500 hover:text-white transition-colors"
             >
               <span>View on HackerRank</span>
               <ExternalLink size={16} className="ml-2" />
