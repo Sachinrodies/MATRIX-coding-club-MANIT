@@ -2,19 +2,15 @@ import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Calendar, Clock, Users, Trophy, ArrowLeft, MessageSquare, Code, ArrowRight } from 'lucide-react';
 import { useContest } from '../contexts/ContestContext';
-import ProblemCard from '../components/contests/ProblemCard';
-import LeaderboardTable from '../components/contests/LeaderboardTable';
 
 const ContestDetail = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { getContest, getProblems, getParticipants } = useContest();
+  const { getContest } = useContest();
   
   const [activeTab, setActiveTab] = useState<'overview' | 'problems' | 'leaderboard'>('overview');
   
   const contest = getContest(id || '');
-  const problems = getProblems(id || '');
-  const participants = getParticipants(id || '');
   
   const isUpcoming = contest ? new Date(contest.date) > new Date() : false;
   
@@ -86,17 +82,12 @@ const ContestDetail = () => {
                 <Clock size={18} className="text-matrix-green-500" />
                 <span>Duration: {contest.duration}</span>
               </div>
-              
-              <div className="flex items-center space-x-2 text-gray-300">
-                <Code size={18} className="text-matrix-green-500" />
-                <span>Problems: {contest.problemCount}</span>
-              </div>
             </div>
             
             {isUpcoming && (
               <div className="mt-6">
                 <button className="btn-primary">
-                  Register for Contest
+                  <span>View on HackerRank(coming soon)</span>
                 </button>
               </div>
             )}
@@ -114,26 +105,6 @@ const ContestDetail = () => {
               onClick={() => setActiveTab('overview')}
             >
               Overview
-            </button>
-            <button
-              className={`px-4 py-3 font-medium text-sm transition-colors ${
-                activeTab === 'problems'
-                  ? 'text-matrix-green-500 border-b-2 border-matrix-green-500'
-                  : 'text-gray-400 hover:text-gray-300'
-              }`}
-              onClick={() => setActiveTab('problems')}
-            >
-              Problems
-            </button>
-            <button
-              className={`px-4 py-3 font-medium text-sm transition-colors ${
-                activeTab === 'leaderboard'
-                  ? 'text-matrix-green-500 border-b-2 border-matrix-green-500'
-                  : 'text-gray-400 hover:text-gray-300'
-              }`}
-              onClick={() => setActiveTab('leaderboard')}
-            >
-              {isUpcoming ? 'Participants' : 'Leaderboard'}
             </button>
           </div>
         </div>
@@ -187,63 +158,6 @@ const ContestDetail = () => {
                   <li>Discord: Join our server at discord.gg/matrixcodingclub</li>
                 </ul>
               </div>
-            </div>
-          )}
-          
-          {activeTab === 'problems' && (
-            <div>
-              {isUpcoming ? (
-                <div className="bg-matrix-dark-800 rounded-lg p-6 text-center">
-                  <Code size={48} className="mx-auto text-gray-500 mb-4" />
-                  <h3 className="text-xl font-semibold text-white mb-2">Problems will be revealed when the contest starts</h3>
-                  <p className="text-gray-400 mb-4">
-                    Problems will become available once the contest begins. Make sure to register and be ready!
-                  </p>
-                  <button className="btn-primary">
-                    Register for Contest
-                  </button>
-                </div>
-              ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {problems.map(problem => (
-                    <ProblemCard 
-                      key={problem.id} 
-                      problem={problem} 
-                      contestId={contest.id} 
-                    />
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
-          
-          {activeTab === 'leaderboard' && (
-            <div>
-              {isUpcoming ? (
-                <div className="bg-matrix-dark-800 rounded-lg p-6 text-center">
-                  <Users size={48} className="mx-auto text-gray-500 mb-4" />
-                  <h3 className="text-xl font-semibold text-white mb-2">
-                    {contest.participantsCount} Participants Registered
-                  </h3>
-                  <p className="text-gray-400 mb-6">
-                    Join fellow coders in this exciting contest. Register now to participate!
-                  </p>
-                  <button className="btn-primary">
-                    Register for Contest
-                  </button>
-                </div>
-              ) : (
-                <div className="bg-matrix-dark-800 rounded-lg overflow-hidden">
-                  <div className="p-4 border-b border-matrix-dark-700 flex justify-between items-center">
-                    <h3 className="text-lg font-medium text-white flex items-center">
-                      <Trophy size={18} className="mr-2 text-yellow-400" />
-                      Contest Leaderboard
-                    </h3>
-                    <span className="text-gray-400 text-sm">{participants.length} participants</span>
-                  </div>
-                  <LeaderboardTable participants={participants} />
-                </div>
-              )}
             </div>
           )}
         </div>
