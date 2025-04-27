@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react';
 import { Filter, Search, Users, Sparkles } from 'lucide-react';
 import MemberCard from '../components/members/MemberCard';
 
-type RoleType = 'all' | 'secretary' | 'lead' | 'core' | 'member' | 'new-recruit';
+type RoleType = 'all'  | 'lead' | 'core' | 'member' | 'new-recruit';
 
 interface Member {
   id: string;
   name: string;
-  role: 'secretary' | 'lead' | 'core' | 'member' | 'new-recruit';
+  role:  'lead' | 'core' | 'member' | 'new-recruit';
   image: string;
   github?: string;
   linkedin?: string;
@@ -17,16 +17,7 @@ interface Member {
 
 // Sample data - replace with actual data from your backend
 const members: Member[] = [
-  {
-    id: '4',
-    name: 'Manas Das',
-    role: 'secretary',
-    image: 'https://avatars.githubusercontent.com/u/141831871?v=4',
-    github: 'https://github.com/xNORAGAMIx',
-    linkedin: 'https://www.linkedin.com/in/manas-d-552168146/',
-    email: 'noragami0021@gmail.com',
-    bio: 'Secretary'
-  },
+ 
   {
     id: '1',
     name: 'Ankit Chauhan',
@@ -56,6 +47,16 @@ const members: Member[] = [
     linkedin: 'https://www.linkedin.com/in/atul-tandan-6583b7287?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
     email: 'ankitchauhan21500@gmail.com',
     bio: 'Web Developer'
+  },
+  {
+    id: '4',
+    name: 'Manas Das',
+    role: 'core',
+    image: 'https://avatars.githubusercontent.com/u/141831871?v=4',
+    github: 'https://github.com/xNORAGAMIx',
+    linkedin: 'https://www.linkedin.com/in/manas-d-552168146/',
+    email: 'noragami0021@gmail.com',
+    bio: 'Secretary'
   },
   {
     id: '5',
@@ -123,7 +124,7 @@ const newRecruits: Member[] = [
   },
   {
     id: '2',
-    name: 'New Recruit 2',
+    name: 'Mukesh Kumar',
     role: 'new-recruit',
     image: 'https://via.placeholder.com/150',
     github: 'https://github.com/',
@@ -191,16 +192,6 @@ const Members = () => {
                   All
                 </button>
                 <button
-                  onClick={() => setRoleFilter('secretary')}
-                  className={`px-4 py-2 text-sm font-medium ${
-                    roleFilter === 'secretary'
-                      ? 'bg-matrix-green-500 text-matrix-dark-900' 
-                      : 'bg-matrix-dark-700 text-gray-300 hover:bg-matrix-dark-600'
-                  } transition-colors`}
-                >
-                  Secretary
-                </button>
-                <button
                   onClick={() => setRoleFilter('lead')}
                   className={`px-4 py-2 text-sm font-medium ${
                     roleFilter === 'lead'
@@ -208,6 +199,7 @@ const Members = () => {
                       : 'bg-matrix-dark-700 text-gray-300 hover:bg-matrix-dark-600'
                   } transition-colors`}
                 >
+                 
                   Leads
                 </button>
                 <button
